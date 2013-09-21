@@ -1,0 +1,5 @@
+<ul class="nav nav-tabs">
+  <li class="<%= 'active' if params[:controller] == 'logos' %>">
+    <%= link_to "로고 관리(#{Logo.count})", logos_path %>
+  </li>
+</ul>

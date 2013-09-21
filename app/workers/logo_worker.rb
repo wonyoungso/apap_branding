@@ -1,7 +1,10 @@
 #encoding: utf-8
 class LogoWorker 
   include Sidekiq::Worker
-  def perform(name, count)
-    # do something
+
+  def perform
+
+    l = Logo.get_recent_gopro_picture
+    l.save
   end
 end

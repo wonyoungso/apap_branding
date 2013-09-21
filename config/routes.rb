@@ -1,4 +1,10 @@
+require 'sidekiq/web'
+
 ApapBranding::Application.routes.draw do
+  mount Sidekiq::Web => '/sidekiq'
+
+  resources :logos
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -41,8 +47,8 @@ ApapBranding::Application.routes.draw do
 
   # Sample resource route within a namespace:
   #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
+  #     # Directs /products/* to Admin::ProductsController
+  #     # (app/controllers/products_controller.rb)
   #     resources :products
   #   end
 

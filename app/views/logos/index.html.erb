@@ -1,0 +1,42 @@
+<%= flash[:notice] %>
+<%= flash[:alert] %>
+
+<%= render 'tab' %>
+<h2>
+  로고 관리
+</h2>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>
+        로고 스냅샷
+      </th>
+      <th>
+        필터링된 스냅샷
+      </th>
+      <th>
+        촬영일
+      </th>
+      <th>
+        삭제
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @logos.each do |logo| %>
+      <tr>
+        <td>
+          <%= image_tag logo.picture.url(:filtered), :style => 'height:150px' %>
+        </td>
+        <td>
+          <%= link_to '삭제', logo_path(logo), :method => 'delete', :confirm => '정말 삭제하시겠습니까?' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to '새 로고', new_logo_path, :class => 'btn btn-primary' %>
+
+<%= will_paginate @logos %>

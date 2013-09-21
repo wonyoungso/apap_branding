@@ -1,0 +1,16 @@
+<h2>
+  새 로고
+</h2>
+
+<%= form_for [:admin, @logo], :html => {:class => 'form-horizontal', :multipart => true} do |f| %>
+  <div class="control-group">
+    <%= f.label :picture, '사진', :class => 'control-label' %>
+    <div class="controls">
+      <%= f.file_field :picture %>
+    </div>
+  </div>
+
+  <div class="form-action">
+    <%= f.submit '등록하기', :class => 'btn btn-primary' %>
+  </div>
+<% end %>
