@@ -48,28 +48,28 @@ ssh_options[:keys] = [File.join(ENV["HOME"], ".ssh", "id_rsa")]
 
 
 
-namespace :foreman do
-  # desc 'Export the Procfile to Ubuntu upstart scripts'
-  # task :export, :roles => :app do
-  #   run "cd /home/deployer/small-world.kr/current && "\
-  #       "rbenv sudo foreman export upstart /etc/init -f /home/deployer/apap.or.kr/current/Procfile.production -a apap.or.kr -u deployer -l /home/deployer/apap.or.kr/current/log/foreman"
-  # end
+# namespace :foreman do
+#   # desc 'Export the Procfile to Ubuntu upstart scripts'
+#   # task :export, :roles => :app do
+#   #   run "cd /home/deployer/small-world.kr/current && "\
+#   #       "rbenv sudo foreman export upstart /etc/init -f /home/deployer/apap.or.kr/current/Procfile.production -a apap.or.kr -u deployer -l /home/deployer/apap.or.kr/current/log/foreman"
+#   # end
 
-  desc "Start the application services"
-  task :start, :roles => :app do
-    sudo "start #{application}"
-  end
+#   desc "Start the application services"
+#   task :start, :roles => :app do
+#     sudo "start #{application}"
+#   end
 
-  desc "Stop the application services"
-  task :stop, :roles => :app do
-    sudo "stop #{application}"
-  end
+#   desc "Stop the application services"
+#   task :stop, :roles => :app do
+#     sudo "stop #{application}"
+#   end
 
-  desc "Restart the application services"
-  task :restart, :roles => :app do
-    run "#{sudo} start #{application} || #{sudo} restart #{application}"
-  end
-end
+#   desc "Restart the application services"
+#   task :restart, :roles => :app do
+#     run "#{sudo} start #{application} || #{sudo} restart #{application}"
+#   end
+# end
 
 #after "deploy:update", "foreman:export"
 #after "deploy:update", "foreman:restart"
