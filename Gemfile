@@ -13,7 +13,7 @@ gem 'httpclient'
 gem 'will_paginate'
 gem 'sidekiq'
 gem 'sidetiq'
-gem 'foreman'
+#gem 'foreman'
 
 # Gems used only for assets and not required
 # in production environments by default.
