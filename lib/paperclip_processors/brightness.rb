@@ -8,26 +8,26 @@ module Paperclip
       @basename = File.basename(@file.path, @format)
     end
 
-     def make  
-       src = @file
-       dst = Tempfile.new([@basename, @format])
-       dst.binmode
+    def make  
+      src = @file
+      dst = Tempfile.new([@basename, @format])
+      dst.binmode
 
-       begin
-         parameters = []
-         parameters << ":source"
-         parameters << "-brightness-contrast 44x44"
-         parameters << ":dest"
+      begin
+        parameters = []
+        parameters << ":source"
+        parameters << "-brightness-contrast 44x44"
+        parameters << ":dest"
 
-         parameters = parameters.flatten.compact.join(" ").strip.squeeze(" ")
+        parameters = parameters.flatten.compact.join(" ").strip.squeeze(" ")
 
-         success = Paperclip.run("convert", parameters, :source => "#{File.expand_path(src.path)}[0]", :dest => File.expand_path(dst.path))
-       rescue PaperclipCommandLineError => e
-         raise PaperclipError, "There was an error during the grayscale conversion for #{@basename}" if @whiny
-       end
+        success = Paperclip.run("convert", parameters, :source => "#{File.expand_path(src.path)}[0]", :dest => File.expand_path(dst.path))
+      rescue 
+        raise PaperclipError, "There was an error during the grayscale conversion for #{@basename}" if @whiny
+      end
 
-       dst
-     end
+     dst
+   end
 
   end
 end

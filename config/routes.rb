@@ -1,4 +1,5 @@
 require 'sidekiq/web'
+require 'sidetiq/web'
 
 ApapBranding::Application.routes.draw do
   mount Sidekiq::Web => '/sidekiq'

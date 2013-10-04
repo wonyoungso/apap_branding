@@ -10,4 +10,6 @@ describe "로고 워커" do
     logo_worker.perform
     Logo.count.should == 1
   end
+
+  
 end

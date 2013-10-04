@@ -8,10 +8,11 @@ gem 'sinatra', '>= 1.3.0', :require => nil
 
 gem 'pg'
 gem 'activerecord-postgis-adapter'
-gem 'sidekiq'
 gem 'paperclip'
+gem 'httpclient'
 gem 'will_paginate'
-
+gem 'sidekiq'
+gem 'sidetiq'
 
 # Gems used only for assets and not required
 # in production environments by default.

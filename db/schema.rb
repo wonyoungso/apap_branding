@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130921015817) do
+ActiveRecord::Schema.define(:version => 20130930134824) do
 
   create_table "logos", :force => true do |t|
     t.datetime "pictured_at"
@@ -19,8 +19,9 @@ ActiveRecord::Schema.define(:version => 20130921015817) do
     t.string   "picture_content_type"
     t.datetime "picture_updated_at"
     t.integer  "picture_file_size"
-    t.datetime "created_at",           :null => false
-    t.datetime "updated_at",           :null => false
+    t.datetime "created_at",                              :null => false
+    t.datetime "updated_at",                              :null => false
+    t.boolean  "uploaded",             :default => false
   end
 
 end

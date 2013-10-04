@@ -26,8 +26,15 @@
   <tbody>
     <% @logos.each do |logo| %>
       <tr>
+
+        <td>
+          <%= image_tag logo.picture.url, :style => 'height:150px' %>
+        </td>
         <td>
           <%= image_tag logo.picture.url(:filtered), :style => 'height:150px' %>
+        </td>
+        <td>
+          <%= logo.created_at.strftime("%Y-%m-%d %H:%M") %>
         </td>
         <td>
           <%= link_to '삭제', logo_path(logo), :method => 'delete', :confirm => '정말 삭제하시겠습니까?' %>
