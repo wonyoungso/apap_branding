@@ -1,5 +1,5 @@
 development:
-  adapter: postgis
+  adapter: postgresql
   encoding: unicode
   database: apapbranding_development
   pool: 5
@@ -9,7 +9,7 @@ development:
   schema_search_path: public
 
 test:
-  adapter: postgis
+  adapter: postgresql
   encoding: unicode
   host: localhost
   database: apapbranding_test
@@ -18,11 +18,10 @@ test:
   password:
 
 production:
-  adapter: postgis
+  adapter: postgresql
   encoding: unicode
   host: localhost
   database: apapbranding_production
   pool: 5
   username: postgres
   password: apap2013
-  script_dir: /usr/share/postgresql/9.1/contrib/postgis-2.0
