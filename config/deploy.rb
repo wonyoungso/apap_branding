@@ -31,6 +31,11 @@ set :branch, "stable"
 set :rails_env, 'production'
 ssh_options[:keys] = [File.join(ENV["HOME"], ".ssh", "id_rsa")]
 
+after "bundle:install" do
+  run "cd #{release_path}; RAILS_ENV=production bundle exec rake assets:precompile"
+end
+
+
 # if you want to clean up old releases on each deploy uncomment this:
 # after "deploy:restart", "deploy:cleanup"
 
