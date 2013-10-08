@@ -11,6 +11,10 @@ class LogosController < ApplicationController
     redirect_to logos_path, :notice => '성공적으로 등록하였습니다.'
   end
 
+  def show
+    @logo = Logo.find params[:id]
+  end
+
   def create
     @logo = Logo.new(params[:logo])
     @logo.pictured_at = DateTime.now unless params[:logo][:pictured_at].present?
