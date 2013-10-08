@@ -1,0 +1,11 @@
+development:
+  url: http://localhost:3001
+
+test:
+  url: http://localhost:3001
+
+staging:
+  url: http://staging.apap.or.kr
+
+production: 
+  url: http://apap.or.kr

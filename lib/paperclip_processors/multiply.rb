@@ -1,6 +1,6 @@
 module Paperclip
   # Handles grayscale conversion of images that are uploaded.
-  class Brightness < Processor
+  class Multiply < Processor
 
     def initialize file, options = {}, attachment = nil
       super
@@ -15,13 +15,13 @@ module Paperclip
 
       begin
         parameters = []
-        parameters << ":source"
-        parameters << "-brightness-contrast 22x22"
+        parameters << "-compose Multiply -gravity center"
+        parameters << ":yellow :source"
         parameters << ":dest"
 
         parameters = parameters.flatten.compact.join(" ").strip.squeeze(" ")
 
-        success = Paperclip.run("convert", parameters, :source => "#{File.expand_path(src.path)}[0]", :dest => File.expand_path(dst.path))
+        success = Paperclip.run("composite", parameters, :yellow => "#{Rails.root.to_s}/config/yellow_layer.jpg", :source => "#{File.expand_path(src.path)}[0]", :dest => File.expand_path(dst.path))
       rescue 
         raise PaperclipError, "There was an error during the grayscale conversion for #{@basename}" if @whiny
       end
