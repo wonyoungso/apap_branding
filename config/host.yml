@@ -8,4 +8,4 @@ staging:
   url: http://staging.apap.or.kr
 
 production: 
-  url: http://apap.or.kr
+  url: http://staging.apap.or.kr
