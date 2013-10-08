@@ -16,7 +16,7 @@ class LogoWorker
         body = {} 
 
 
-        res = clnt.post("http://localhost:3001/api/logos.json", {
+        res = clnt.post("http://staging.apap.or.kr/api/logos.json", {
           'logo[picture]' => File.open("#{Rails.root.to_s}/#{logo.picture.path(:filtered).gsub('./', '')}"),
           'logo[multiplied_picture]' => File.open("#{Rails.root.to_s}/#{logo.picture.path(:multiplied).gsub('./', '')}")
         })
