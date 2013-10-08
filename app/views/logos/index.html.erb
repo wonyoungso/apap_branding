@@ -10,12 +10,6 @@
   <thead>
     <tr>
       <th>
-        로고 스냅샷
-      </th>
-      <th>
-        노란로고 스냅샷
-      </th>
-      <th>
         촬영일
       </th>
       <th>
@@ -26,15 +20,8 @@
   <tbody>
     <% @logos.each do |logo| %>
       <tr>
-
         <td>
-          <%= image_tag logo.picture.url(:filtered_thumb), :style => 'height:150px' %>
-        </td>
-        <td>
-          <%= image_tag logo.picture.url(:multiplied_thumb), :style => 'height:150px' %>
-        </td>
-        <td>
-          <%= logo.created_at.strftime("%Y-%m-%d %H:%M") %>
+          <%= link_to logo.created_at.strftime("%Y-%m-%d %H:%M"), admin_logo_path(logo) %>
         </td>
         <td>
           <%= link_to '삭제', logo_path(logo), :method => 'delete', :confirm => '정말 삭제하시겠습니까?' %>
@@ -44,6 +31,5 @@
   </tbody>
 </table>
 
-<%= link_to '새 로고', new_logo_path, :class => 'btn btn-primary' %>
 
 <%= will_paginate @logos %>

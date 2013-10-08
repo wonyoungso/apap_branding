@@ -1,0 +1,10 @@
+<%= flash[:notice] %>
+<%= flash[:alert] %>
+
+<%= render 'tab' %>
+<h2>
+  로고 관리
+</h2>
+
+<%= image_tag @logo.picture.url(:filtered), :style => 'width:500px' %>
+<%= image_tag @logo.picture.url(:multiplied), :style => 'width:500px' %>
