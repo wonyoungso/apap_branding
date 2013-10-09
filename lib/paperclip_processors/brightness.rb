@@ -16,7 +16,7 @@ module Paperclip
       begin
         parameters = []
         parameters << ":source"
-        parameters << "-brightness-contrast 22x22"
+        parameters << "-brightness-contrast 5x5"
         parameters << ":dest"
 
         parameters = parameters.flatten.compact.join(" ").strip.squeeze(" ")

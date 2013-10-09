@@ -3,7 +3,7 @@ class LogoWorker
   include Sidekiq::Worker
   include Sidetiq::Schedulable
 
-  recurrence { minutely(5) }
+  recurrence { minutely(10) }
   def perform
 
     @website_url ||= YAML.load(ERB.new(File.read("#{Rails.root}/config/host.yml")).result)[Rails.env]["url"]   
@@ -16,7 +16,7 @@ class LogoWorker
         body = {} 
 
 
-        res = clnt.post("http://staging.apap.or.kr/api/logos.json", {
+        res = clnt.post("http://localhost:3000/api/logos.json", {
           'logo[picture]' => File.open("#{Rails.root.to_s}/#{logo.picture.path(:filtered).gsub('./', '')}"),
           'logo[multiplied_picture]' => File.open("#{Rails.root.to_s}/#{logo.picture.path(:multiplied).gsub('./', '')}")
         })
