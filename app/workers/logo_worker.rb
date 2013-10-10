@@ -13,13 +13,15 @@ class LogoWorker
     logos.each do |logo|
       if !logo.uploaded
         clnt = HTTPClient.new
+        clnt.receive_timeout = 1000000
+
         body = {} 
 
 
         res = clnt.post("http://staging.apap.or.kr/api/logos.json", {
           'logo[picture]' => File.open("#{Rails.root.to_s}/#{logo.picture.path(:filtered).gsub('./', '')}"),
-          'logo[multiplied_picture]' => File.open("#{Rails.root.to_s}/#{logo.picture.path(:multiplied).gsub('./', '')}")
-          'logo[pictured_at]' => logo.pictured_at
+          'logo[multiplied_picture]' => File.open("#{Rails.root.to_s}/#{logo.picture.path(:multiplied).gsub('./', '')}"),
+          'logo[pictured_at]' => DateTime.now
         })
 
         

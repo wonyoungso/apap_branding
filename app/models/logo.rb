@@ -3,8 +3,8 @@ class Logo < ActiveRecord::Base
   has_attached_file :picture, 
                     :styles => {
                       :thumb => "100x100#",
-                      :filtered => { :processors => [:brightness] },
-                      :multiplied => { :processors => [:multiply] }
+                      :filtered => { :processors => [:crop_rotate, :brightness] },
+                      :multiplied => { :processors => [:crop_rotate, :multiply] }
                     },
                     :path => "./public/system/#{Rails.env.to_s}/logos/pictures/:id/:style/:filename",
                     :url => "/system/#{Rails.env.to_s}/logos/pictures/:id/:style/:filename"

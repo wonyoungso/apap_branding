@@ -1,6 +1,6 @@
 module Paperclip
   # Handles grayscale conversion of images that are uploaded.
-  class Brightness < Processor
+  class CropRotate < Processor
 
     def initialize file, options = {}, attachment = nil
       super
@@ -16,7 +16,9 @@ module Paperclip
       begin
         parameters = []
         parameters << ":source"
-        parameters << "-brightness-contrast 2x2"
+        parameters << "-rotate -0.8"
+        parameters << "-colorspace Gray"
+        parameters << "-crop 5280x2964+198+564"
         parameters << ":dest"
 
         parameters = parameters.flatten.compact.join(" ").strip.squeeze(" ")
