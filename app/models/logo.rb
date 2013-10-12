@@ -17,7 +17,7 @@ class Logo < ActiveRecord::Base
     # l.picture = Rack::Test::UploadedFile.new(test_file, "image/jpg")
     logos = []
 
-    files = Dir.glob(File.join(Rails.root.to_s + '/public/gopro_pictures', "*"))
+    files = Dir.glob(File.join("/home/deployer/snapshots", "*"))
     files.each do |file|
       l = Logo.new
       l.pictured_at = Time.at(file.split("/").last.split(".")[0].to_i/1000).to_datetime
@@ -25,7 +25,7 @@ class Logo < ActiveRecord::Base
 
       if l.save
         logos << l 
-        # File.delete(file)
+        File.delete(file)
       end
     end
 
