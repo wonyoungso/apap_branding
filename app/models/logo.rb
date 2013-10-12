@@ -27,7 +27,7 @@ class Logo < ActiveRecord::Base
 
       if l.save
         logos << l 
-        #File.delete(file)
+        File.delete(file)
       end
     end
 
