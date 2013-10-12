@@ -21,7 +21,7 @@ class LogoWorker
         res = clnt.post("http://staging.apap.or.kr/api/logos.json", {
           'logo[picture]' => File.open("#{Rails.root.to_s}/#{logo.picture.path(:filtered).gsub('./', '')}"),
           'logo[multiplied_picture]' => File.open("#{Rails.root.to_s}/#{logo.picture.path(:multiplied).gsub('./', '')}"),
-          'logo[pictured_at]' => DateTime.now
+          'logo[pictured_at]' => logo.pictured_at
         })
 
         

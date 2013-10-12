@@ -21,7 +21,7 @@
     <% @logos.each do |logo| %>
       <tr>
         <td>
-          <%= link_to logo.created_at.strftime("%Y-%m-%d %H:%M"), logo_path(logo) %>
+          <%= link_to logo.pictured_at.strftime("%Y-%m-%d %H:%M"), logo_path(logo) %>
         </td>
         <td>
           <%= link_to '삭제', logo_path(logo), :method => 'delete', :confirm => '정말 삭제하시겠습니까?' %>
