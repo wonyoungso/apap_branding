@@ -16,9 +16,9 @@ module Paperclip
       begin
         parameters = []
         parameters << ":source"
-     #   parameters << "-rotate -0"
+        parameters << "-rotate 0.3"
         parameters << "-colorspace Gray"
-        parameters << "-crop 1920x936+0+80"
+        parameters << "-crop 1900x936+0+80"
         parameters << ":dest"
 
         parameters = parameters.flatten.compact.join(" ").strip.squeeze(" ")
