@@ -22,7 +22,7 @@ class Logo < ActiveRecord::Base
       l = Logo.new
       tt = file.split("_")[1].split('-')[0].join('')
       l.pictured_at = DateTime.new(tt[0..3].to_i, tt[4..5].to_i, tt[6..7].to_i, tt[8..9].to_i, tt[10..11].to_i, tt[12..13].to_i)
-
+      
       l.picture = Rack::Test::UploadedFile.new(file, "image/jpg")
 
       if l.save

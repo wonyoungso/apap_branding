@@ -3,7 +3,7 @@ class LogoWorker
   include Sidekiq::Worker
   include Sidetiq::Schedulable
 
-  recurrence { minutely(10) }
+  recurrence { minutely(5) }
   def perform
 
     @website_url ||= YAML.load(ERB.new(File.read("#{Rails.root}/config/host.yml")).result)[Rails.env]["url"]   
