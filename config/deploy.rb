@@ -5,7 +5,6 @@ require 'bundler/capistrano'
 set :rbenv_ruby_version, "1.9.3-p429"
 
 require "capistrano-rbenv"
-
 set :user, "deployer"
 
 load "config/recipes/base"
