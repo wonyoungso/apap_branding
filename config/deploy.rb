@@ -14,7 +14,7 @@ load "config/recipes/unicorn"
 load "config/recipes/sidekiq"
 
 set :scm, :git
-set :repository, "git@github.com:bizarre07/apap_branding.git"
+set :repository, "git@github.com:wonyoungso/apap_branding.git"
 
 
 set :use_sudo, false
